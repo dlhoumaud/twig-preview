@@ -9,6 +9,7 @@
     },
     "license": "MIT",
     "url": "https://github.com/dlhoumaud/twig-preview",
+    "repository": "https://github.com/dlhoumaud/twig-preview",
     "categories": [
         "Other",
         "Visualization",
