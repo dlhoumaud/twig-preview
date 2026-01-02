@@ -7,6 +7,8 @@
     "engines": {
         "vscode": "^1.50.0"
     },
+    "license": "MIT",
+    "url": "https://github.com/dlhoumaud/twig-preview",
     "categories": [
         "Other",
         "Visualization",

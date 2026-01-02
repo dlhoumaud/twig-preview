@@ -1,6 +1,6 @@
 # Twig Preview VS Code Extension
 
-![Logo](logo.png)
+![Logo](https://raw.githubusercontent.com/dlhoumaud/twig-preview/refs/heads/main/logo.png)
 
 Extension minimale pour prévisualiser les fichiers Twig et fournir un onglet de variables JSON.
 
