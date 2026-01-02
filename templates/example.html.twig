@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Page de Bienvenue{% endblock %}
+
+{% block body %}
+    <nav>
+            <a href="{{ path('homepage') }}">Accueil</a>
+            <a href="{{ path('contact') }}">Contact</a>
+    </nav>
+
+    <h1>{{ title }}</h1>
+
+    {% if displayList %}
+        {% if items is not empty %}
+            <table>
+                <thead>
+                    <tr><th>Nom</th><th>Valeur</th></tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.value }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Aucune donnée à afficher.</p>
+        {% endif %}
+    {% endif %}
+
+    <p>
+        <button class="btn btn-primary" 
+        onclick="showAlert('Bonjour depuis example.html.twig')">Cliquez-moi</button>
+    </p>
+
+
+    {% include "footer.html.twig" with {
+        'year': '2024',
+        'company': "Exemple SARL"
+    } %}
+{% endblock %}

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Bienvenue</title>
+        <style>
+      /* Styles complets inspirés de Bootstrap */
+      :root {
+        --bs-body-bg: #fff;
+        --bs-body-color: #212529;
+        --bs-primary: #0d6efd;
+        --bs-secondary: #6c757d;
+        --bs-success: #198754;
+        --bs-danger: #dc3545;
+        --bs-warning: #ffc107;
+        --bs-info: #0dcaf0;
+        --bs-light: #f8f9fa;
+        --bs-dark: #212529;
+        --bs-white: #fff;
+        --bs-gray-100: #f8f9fa;
+        --bs-gray-200: #e9ecef;
+        --bs-gray-300: #dee2e6;
+        --bs-gray-400: #ced4da;
+        --bs-gray-500: #adb5bd;
+        --bs-gray-600: #6c757d;
+        --bs-gray-700: #495057;
+        --bs-gray-800: #343a40;
+        --bs-gray-900: #212529;
+      }
+      * { box-sizing: border-box; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        background: var(--bs-body-bg);
+        color: var(--bs-body-color);
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+      .container {
+        width: 100%;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 16px;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+      }
+      .col {
+        flex: 1;
+        padding: 0 15px;
+      }
+      .col-1 { flex: 0 0 8.333%; max-width: 8.333%; }
+      .col-2 { flex: 0 0 16.666%; max-width: 16.666%; }
+      .col-3 { flex: 0 0 25%; max-width: 25%; }
+      .col-4 { flex: 0 0 33.333%; max-width: 33.333%; }
+      .col-6 { flex: 0 0 50%; max-width: 50%; }
+      .col-8 { flex: 0 0 66.666%; max-width: 66.666%; }
+      .col-9 { flex: 0 0 75%; max-width: 75%; }
+      .col-12 { flex: 0 0 100%; max-width: 100%; }
+      .btn {
+        display: inline-block;
+        font-weight: 400;
+        color: #fff;
+        text-align: center;
+        vertical-align: middle;
+        user-select: none;
+        background-color: var(--bs-primary);
+        border: 1px solid rgba(0,0,0,0.1);
+        padding: .375rem .75rem;
+        border-radius: .375rem;
+        cursor: pointer;
+        text-decoration: none;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+      }
+      .btn:hover { opacity: 0.9; }
+      .btn-primary { background-color: var(--bs-primary); border-color: var(--bs-primary); }
+      .btn-secondary { background-color: var(--bs-secondary); border-color: var(--bs-secondary); }
+      .btn-success { background-color: var(--bs-success); border-color: var(--bs-success); }
+      .btn-danger { background-color: var(--bs-danger); border-color: var(--bs-danger); }
+      .btn-warning { background-color: var(--bs-warning); border-color: var(--bs-warning); color: #000; }
+      .btn-info { background-color: var(--bs-info); border-color: var(--bs-info); }
+      .btn-light { background-color: var(--bs-light); border-color: var(--bs-light); color: #000; }
+      .btn-dark { background-color: var(--bs-dark); border-color: var(--bs-dark); }
+      .btn-sm { padding: .25rem .5rem; font-size: .875rem; border-radius: .25rem; }
+      .btn-lg { padding: .5rem 1rem; font-size: 1.25rem; border-radius: .5rem; }
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1rem;
+      }
+      .table th, .table td {
+        padding: .5rem;
+        border: 1px solid #dee2e6;
+      }
+      .table thead th {
+        background: #f8f9fa;
+        border-bottom: 2px solid #dee2e6;
+      }
+      .table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(0,0,0,.05);
+      }
+      .alert {
+        padding: .75rem 1rem;
+        background: #ffdddd;
+        border: 1px solid #ffb3b3;
+        border-radius: .25rem;
+        margin-bottom: 1rem;
+      }
+      .alert-success { background: #d1edff; border-color: #bee5eb; color: #0c5460; }
+      .alert-danger { background: #f8d7da; border-color: #f5c6cb; color: #721c24; }
+      .alert-warning { background: #fff3cd; border-color: #ffeaa7; color: #856404; }
+      .alert-info { background: #d1ecf1; border-color: #bee5eb; color: #0c5460; }
+      .card {
+        border: 1px solid #dee2e6;
+        border-radius: .375rem;
+        margin-bottom: 1rem;
+      }
+      .card-body {
+        padding: 1rem;
+      }
+      .card-header {
+        padding: .5rem 1rem;
+        background: #f8f9fa;
+        border-bottom: 1px solid #dee2e6;
+        border-radius: .375rem .375rem 0 0;
+      }
+      .card-title {
+        margin: 0;
+        font-size: 1.25rem;
+      }
+      .form-group {
+        margin-bottom: 1rem;
+      }
+      .form-control {
+        display: block;
+        width: 100%;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+      }
+      .form-control:focus {
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+      }
+      .text-center { text-align: center; }
+      .text-left { text-align: left; }
+      .text-right { text-align: right; }
+      .mt-1 { margin-top: .25rem; }
+      .mt-2 { margin-top: .5rem; }
+      .mt-3 { margin-top: 1rem; }
+      .mt-4 { margin-top: 1.5rem; }
+      .mt-5 { margin-top: 3rem; }
+      .mb-1 { margin-bottom: .25rem; }
+      .mb-2 { margin-bottom: .5rem; }
+      .mb-3 { margin-bottom: 1rem; }
+      .mb-4 { margin-bottom: 1.5rem; }
+      .mb-5 { margin-bottom: 3rem; }
+      .p-1 { padding: .25rem; }
+      .p-2 { padding: .5rem; }
+      .p-3 { padding: 1rem; }
+      .p-4 { padding: 1.5rem; }
+      .p-5 { padding: 3rem; }
+      .bg-primary { background-color: var(--bs-primary) !important; color: #fff; }
+      .bg-secondary { background-color: var(--bs-secondary) !important; color: #fff; }
+      .bg-success { background-color: var(--bs-success) !important; color: #fff; }
+      .bg-danger { background-color: var(--bs-danger) !important; color: #fff; }
+      .bg-warning { background-color: var(--bs-warning) !important; color: #000; }
+      .bg-info { background-color: var(--bs-info) !important; color: #fff; }
+      .bg-light { background-color: var(--bs-light) !important; color: #000; }
+      .bg-dark { background-color: var(--bs-dark) !important; color: #fff; }
+      .text-primary { color: var(--bs-primary) !important; }
+      .text-secondary { color: var(--bs-secondary) !important; }
+      .text-success { color: var(--bs-success) !important; }
+      .text-danger { color: var(--bs-danger) !important; }
+      .text-warning { color: var(--bs-warning) !important; }
+      .text-info { color: var(--bs-info) !important; }
+      .text-light { color: #f8f9fa !important; }
+      .text-dark { color: #212529 !important; }
+      .text-white { color: #fff !important; }
+      .d-none { display: none !important; }
+      .d-block { display: block !important; }
+      .d-inline { display: inline !important; }
+      .d-inline-block { display: inline-block !important; }
+      .d-flex { display: flex !important; }
+      .justify-content-start { justify-content: flex-start !important; }
+      .justify-content-end { justify-content: flex-end !important; }
+      .justify-content-center { justify-content: center !important; }
+      .justify-content-between { justify-content: space-between !important; }
+      .justify-content-around { justify-content: space-around !important; }
+      .align-items-start { align-items: flex-start !important; }
+      .align-items-end { align-items: flex-end !important; }
+      .align-items-center { align-items: center !important; }
+      .align-items-baseline { align-items: baseline !important; }
+      .align-items-stretch { align-items: stretch !important; }
+      .w-25 { width: 25% !important; }
+      .w-50 { width: 50% !important; }
+      .w-75 { width: 75% !important; }
+      .w-100 { width: 100% !important; }
+      .h-25 { height: 25% !important; }
+      .h-50 { height: 50% !important; }
+      .h-75 { height: 75% !important; }
+      .h-100 { height: 100% !important; }
+      .border { border: 1px solid #dee2e6 !important; }
+      .border-top { border-top: 1px solid #dee2e6 !important; }
+      .border-bottom { border-bottom: 1px solid #dee2e6 !important; }
+      .border-left { border-left: 1px solid #dee2e6 !important; }
+      .border-right { border-right: 1px solid #dee2e6 !important; }
+      .border-0 { border: 0 !important; }
+      .rounded { border-radius: .25rem !important; }
+      .rounded-circle { border-radius: 50% !important; }
+      .shadow { box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important; }
+      .shadow-sm { box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important; }
+      .shadow-lg { box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important; }
+    </style>
+    </head>
+<body>
+  <div class="container">
+    
+    <nav>
+            <a href="">Accueil</a>
+            <a href="">Contact</a>
+    </nav>
+
+    <h1>title</h1>
+
+                        <table>
+                <thead>
+                    <tr><th>Nom</th><th>Valeur</th></tr>
+                </thead>
+                <tbody>
+                                        <tr>
+                        <td>name 1</td>
+                        <td>valeur 1</td>
+                    </tr>
+                                    </tbody>
+            </table>
+            
+    <p>
+        <button class="btn btn-primary" 
+        onclick="showAlert('Bonjour depuis example.html.twig')">Cliquez-moi</button>
+    </p>
+
+
+    <footer>
+    <p>© year company. All rights reserved.</p>
+</footer>
+
+  </div>
+
+    <script>
+    // fonction simple d'alerte utilisée par les templates
+    function showAlert(msg){
+      try{ if(!msg) msg = 'Action'; alert(msg); } catch(e) { /* ignore */ }
+    }
+    // helper pour appeler depuis les boutons
+    window.twigPreview = window.twigPreview || {};
+    window.twigPreview.showAlert = showAlert;
+  </script>
+  </body>
+</html>
